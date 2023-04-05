@@ -1,11 +1,12 @@
 pipeline{
-    agent{
+    agent none
+     }
+    stages{
+        stage('Build'){
+            agent{
         node{
             label "linux&&java11"
         }
-     }
-    stages{
-        stage('build'){
             steps{
                 //script contain java groovy
                 script{
@@ -21,6 +22,10 @@ pipeline{
  
         }
         stage('Test'){
+            agent{
+        node{
+            label "linux&&java11"
+        }
             steps{
                 script{
                     def data = [
