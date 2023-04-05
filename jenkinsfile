@@ -5,6 +5,19 @@ pipeline{
         }
      }
     stages{
+        stage('cobains script'){
+            steps{
+                script{
+                    // this is utility steps
+                    def namaku = [
+                        "firstname": "Ilham",
+                        "lastname": "Kurniatod"
+                    ]
+                    writeJSON(file:"data.json",json:data) 
+                }
+            }
+ 
+        }
         stage('build'){
             steps{
                 //script contain java groovy
@@ -25,19 +38,6 @@ pipeline{
                 echo "start test"   
                 sh(" ./mvnw test")
                 echo "finish test"
-            }
- 
-        }
-        stage('cobains script'){
-            steps{
-                script{
-                    // this is utility steps
-                    def namaku = [
-                        "firstname": "Ilham",
-                        "lastname": "Kurniatod"
-                    ]
-                    writeJSON(file:"data.json",json:data) 
-                }
             }
  
         }
