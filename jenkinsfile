@@ -1,13 +1,12 @@
 pipeline{
     agent none
-    
     stages{
         stage('build'){
-          agent {
-            node {
-                label "linux && java11"
+            agent {
+                node {
+                    label "linux && java11"
+                }
             }
-          }
             steps{
                 //script contain java groovy
                 script{
@@ -23,9 +22,10 @@ pipeline{
  
         }
         stage('Test'){
-          agent {
-            node {
-              label "linux && java11"
+            agent {
+                node {
+                    label "linux && java11"
+                }
             }
             steps{
                 script{
@@ -57,5 +57,4 @@ pipeline{
             echo "will cleanup soon"
         }
     }
-}
 }
