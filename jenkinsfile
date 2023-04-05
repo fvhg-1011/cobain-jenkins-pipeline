@@ -5,9 +5,11 @@ pipeline{
         }
      }
     stages{
-        stage('say hello'){
+        stage('build'){
             steps{
-                echo "hello from pipeline"   
+                echo "build 1 " 
+                echo "build 2 " 
+                echo "build 3 " 
             }
  
         }
@@ -23,6 +25,7 @@ pipeline{
             }
  
         }
+        
     }
     post {
         always {
