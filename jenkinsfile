@@ -1,6 +1,20 @@
 pipeline{
     agent none
     stages{
+        stage('prepare'){
+            agent {
+                node {
+                    label "linux && java11"
+                }
+            }
+            steps{
+                echo("start job: ${env.JOB_NAME}")
+                echo("start build : ${env.BUILD_NUMBER}")
+                echo("branch name: ${env.BRANCH_NAME}")
+            }
+ 
+        }
+
         stage('build'){
             agent {
                 node {
