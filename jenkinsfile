@@ -9,7 +9,19 @@ pipeline{
             steps{
                 echo "hello from pipeline"   
             }
-
+ 
+        }
+        stage('Test'){
+            steps{
+                echo "test from pipeline"   
+            }
+ 
+        }
+        stage('Deploy'){
+            steps{
+                echo "deploy from pipeline"   
+            }
+ 
         }
     }
     post {
