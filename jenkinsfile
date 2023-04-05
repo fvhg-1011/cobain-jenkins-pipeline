@@ -12,4 +12,18 @@ pipeline{
 
         }
     }
+    post {
+        always {
+            echo " this is always been fun!"
+        }
+        success{
+            echo " this is sucess!"
+        }
+        failure {
+            echo " sorry yo fail the test"
+        }
+        cleanup {
+            echo "will cleanup soon"
+        }
+    }
 }
