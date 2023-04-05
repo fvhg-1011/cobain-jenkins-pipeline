@@ -28,9 +28,16 @@ pipeline{
             }
  
         }
-        stage('Deploy'){
+        stage('cobains script'){
             steps{
-                echo "deploy from pipeline"   
+                script{
+                    // this is utility steps
+                    def namaku = [
+                        "firstname": "Ilham",
+                        "lastname": "Kurniatod"
+                    ]
+                    writeJSON(file:"data.json": json:data) 
+                }
             }
  
         }
