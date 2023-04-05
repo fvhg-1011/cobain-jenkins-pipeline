@@ -1,12 +1,13 @@
 pipeline{
     agent none
-     
+    
     stages{
-        stage('Build'){
-            agent{
-        node{
-            label "linux&&java11"
-        }
+        stage('build'){
+          agent {
+            node {
+                label "linux && java11"
+            }
+          }
             steps{
                 //script contain java groovy
                 script{
@@ -22,10 +23,10 @@ pipeline{
  
         }
         stage('Test'){
-            agent{
-        node{
-            label "linux&&java11"
-        }
+          agent {
+            node {
+              label "linux && java11"
+            }
             steps{
                 script{
                     def data = [
@@ -43,19 +44,17 @@ pipeline{
         
     }
     post {
-                always {
-                    echo " this is always been fun!"
-                }
-                success{
-                    echo " this is sucess!"
-                }
-                failure {
-                    echo " sorry yo fail the test"
-                }
-                cleanup {
-                    echo "will cleanup soon"
-                }
+        always {
+            echo " this is always been fun!"
         }
+        success{
+            echo " this is sucess!"
+        }
+        failure {
+            echo " sorry yo fail the test"
+        }
+        cleanup {
+            echo "will cleanup soon"
         }
     }
 }
