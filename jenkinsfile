@@ -7,6 +7,13 @@ pipeline{
     stages{
         stage('build'){
             steps{
+                //script contain java groovy
+                script{
+                    for (int i = 0; i < 10 ; i++){
+                        echo("Script ${i}")
+                    }
+                }
+
                 echo "start build" 
                 sh("./mvnw clean compile test-compile")
                 echo "finish build " 
